@@ -8,19 +8,17 @@ branding:
   icon: 'globe'
   color: 'white'
 
-on:
-  workflow_call:
-    inputs:
-      config-files:
-        description: |-
-          Newline-separated list of config files to build.
-          e.g.,
-            config/en/mkdocs.yml
-            config/zh-Hans/mkdocs.yml
-          If you don't provide one, mkdocs.yml in the root directory will be used.
-        required: false
-        default: ''
-        type: string
+inputs:
+  config-files:
+    description: |-
+      Newline-separated list of config files to build.
+      e.g.,
+        config/en/mkdocs.yml
+        config/zh-Hans/mkdocs.yml
+      If you don't provide one, mkdocs.yml in the root directory will be used.
+    required: false
+    default: ''
+    type: string
 
 permissions:
   contents: read
