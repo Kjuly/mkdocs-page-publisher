@@ -1,0 +1,22 @@
+name: 'MkDocs Builder'
+author: 'Kaijie Yu'
+description: |-
+  Builds MkDocs source files as static pages. Multi-languages can be
+  handled by providing config files.
+
+inputs:
+  config-files:
+    description: |-
+      Newline-separated list of config files to build.
+      e.g.,
+        config/en/mkdocs.yml
+        config/zh-Hans/mkdocs.yml
+      If you don't provide one, mkdocs.yml in the root directory will be used.
+    required: false
+    default: ''
+
+runs:
+  using: docker
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.config-files }}
