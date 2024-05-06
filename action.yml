@@ -25,7 +25,7 @@ runs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Build static pages
-      uses: ./.github/actions/mkdocs-builder
+      uses: Kjuly/mkdocs-page-builder@main
       with:
         config-files: ${{ inputs.config-files }}
     - name: Setup Pages
