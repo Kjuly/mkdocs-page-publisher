@@ -12,19 +12,23 @@ permissions:
 jobs:
   publish:
     name: Publish MkDocs Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Publish Pages
+        id: deployment
         uses: Kjuly/mkdocs-page-publisher@main
 ```
 
-If you have multiple config files to handle multi-languages, you can provide `config-files`:
+If you have multiple config files to handle multi-languages, you can provide `config_files`:
 ```yaml
 uses: Kjuly/mkdocs-page-publisher@main
 with:
-  config-files: |-
+  config_files: |-
     config/en/mkdocs.yml
     config/zh-Hans/mkdocs.yml
 ```

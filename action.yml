@@ -9,7 +9,7 @@ branding:
   color: 'white'
 
 inputs:
-  config-files:
+  config_files:
     description: |-
       Newline-separated list of config files to build.
       e.g.,
@@ -19,6 +19,11 @@ inputs:
     required: false
     default: ''
 
+outputs:
+  page_url:
+    description: 'URL to deployed GitHub Pages.'
+    value: ${{ steps.deployment.outputs.page_url }}
+
 runs:
   using: "composite"
   steps:
@@ -27,7 +32,7 @@ runs:
     - name: Build static pages
       uses: Kjuly/mkdocs-page-builder@main
       with:
-        config-files: ${{ inputs.config-files }}
+        config_files: ${{ inputs.config_files }}
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload Pages Artifact
