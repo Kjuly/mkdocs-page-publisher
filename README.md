@@ -1,6 +1,9 @@
 # mkdocs-page-publisher
 Github Action to deploy MkDocs source files as Github Pages, supporting multiple config files.
 
+A template ([mkdocs-template](https://github.com/Kjuly/mkdocs-template)) is available as a demo.
+
+## Usage
 The `mkdocs.yml` in the root directory will be used by default.
 ```yaml
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
