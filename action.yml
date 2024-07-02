@@ -9,6 +9,10 @@ branding:
   color: 'white'
 
 inputs:
+  requirements_file:
+    description: A file containing a list of required packages, e.g., 'requirements.txt'.
+    required: false
+    default: ''
   config_files:
     description: |-
       Newline-separated list of config files to build.
@@ -32,6 +36,7 @@ runs:
     - name: Build static pages
       uses: Kjuly/mkdocs-page-builder@main
       with:
+        requirements_file: ${{ inputs.requirements_file }}
         config_files: ${{ inputs.config_files }}
     - name: Setup Pages
       uses: actions/configure-pages@v5
