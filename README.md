@@ -25,12 +25,15 @@ jobs:
       - name: Publish Pages
         id: deployment
         uses: Kjuly/mkdocs-page-publisher@main
+        with:
+          requirements_file: requirements.txt
 ```
 
 If you have multiple config files to handle multi-languages, you can provide `config_files`:
 ```yaml
 uses: Kjuly/mkdocs-page-publisher@main
 with:
+  requirements_file: requirements.txt
   config_files: |-
     config/en/mkdocs.yml
     config/zh-Hans/mkdocs.yml
